@@ -1,0 +1,24 @@
+{
+  "name": "docker_postgres_swapi",
+  "version": "1.0.0",
+  "description": "Node.js on Docker with Postgres",
+  "author": "@davigsa",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "migrate:create": "sequelize-cli db:migrate",
+    "migrate:undo": "sequelize-cli db:migrate:undo"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "pg": "^7.18.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "sequelize-cli": "^5.5.1",
+    "sucrase": "^3.12.1"
+  }
+}
