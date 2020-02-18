@@ -4,6 +4,7 @@ import { next } from 'sucrase/dist/parser/tokenizer';
 
 import Caracter from '../models/Caracter';
 import treatUrlTobsolutePath from '../../utils/treatUrlToAbsolutePath';
+import parseStringInArray from '../../utils/parseStringInArray';
 
 class CaracterController {
   async index(req, res) {
@@ -37,6 +38,8 @@ class CaracterController {
         starships,
       } = result;
 
+      const hairArray = parseStringInArray(hair_color);
+      const skinArray = parseStringInArray(skin_color);
       const treatedHomeworld = treatUrlTobsolutePath(homeworld);
       const treatedFilms = films.map(film => {
         return treatUrlTobsolutePath(film);
@@ -55,8 +58,8 @@ class CaracterController {
         name,
         height,
         mass,
-        hair_color,
-        skin_color,
+        hair_color: hairArray,
+        skin_color: skinArray,
         eye_color,
         birth_year,
         gender,

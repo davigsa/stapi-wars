@@ -21,11 +21,11 @@ module.exports = {
         allowNull: false,
       },
       hair_color: {
-        type: Sequelize.STRING,
+        type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: false,
       },
       skin_color: {
-        type: Sequelize.STRING,
+        type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: false,
       },
       eye_color: {
