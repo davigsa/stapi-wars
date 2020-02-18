@@ -1,7 +1,9 @@
 /* eslint-disable consistent-return */
 import axios from 'axios';
 import { next } from 'sucrase/dist/parser/tokenizer';
+
 import Caracter from '../models/Caracter';
+import treatUrlTobsolutePath from '../../utils/treatUrlToAbsolutePath';
 
 class CaracterController {
   async index(req, res) {
@@ -29,7 +31,25 @@ class CaracterController {
         birth_year,
         gender,
         homeworld,
+        films,
+        species,
+        vehicles,
+        starships,
       } = result;
+
+      const treatedHomeworld = treatUrlTobsolutePath(homeworld);
+      const treatedFilms = films.map(film => {
+        return treatUrlTobsolutePath(film);
+      });
+      const treatedSpecies = species.map(specie => {
+        return treatUrlTobsolutePath(specie);
+      });
+      const treatedVehicles = vehicles.map(vehicle => {
+        return treatUrlTobsolutePath(vehicle);
+      });
+      const treatedStarships = starships.map(starship => {
+        return treatUrlTobsolutePath(starship);
+      });
 
       const caracter = {
         name,
@@ -40,7 +60,11 @@ class CaracterController {
         eye_color,
         birth_year,
         gender,
-        homeworld,
+        homeworld: treatedHomeworld,
+        films: treatedFilms,
+        species: treatedSpecies,
+        vehicles: treatedVehicles,
+        starships: treatedStarships,
       };
 
       try {
