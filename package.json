@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "start": "sucrase-node src/server.js",
     "migrate:create": "sequelize-cli db:migrate",
     "migrate:undo": "sequelize-cli db:migrate:undo",
     "lint": "eslint --fix src --ext .js"
