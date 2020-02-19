@@ -19,3 +19,5 @@ services:
             - POSTGRES_DB=swapi
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=docker
+        ports:
+            - "5432:5432"

@@ -41,9 +41,7 @@ class CaracterController {
       const hairArray = parseStringInArray(hair_color);
       const skinArray = parseStringInArray(skin_color);
       const treatedHomeworld = treatUrlTobsolutePath(homeworld);
-      const treatedFilms = films.map(film => {
-        return treatUrlTobsolutePath(film);
-      });
+      const treatedFilms = films.map(film => treatUrlTobsolutePath(film));
       const treatedSpecies = species.map(specie => {
         return treatUrlTobsolutePath(specie);
       });
